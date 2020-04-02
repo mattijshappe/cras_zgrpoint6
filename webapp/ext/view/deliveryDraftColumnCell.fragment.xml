@@ -1,0 +1,4 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<core:Icon src="sap-icon://notes" color="Critical" tooltip="{i18n>tooltipDraftExists}"
+		visible="{= ${draftDeliveryId} !== '00000000-0000-0000-0000-000000000000'}"></core:Icon>
+</core:FragmentDefinition>

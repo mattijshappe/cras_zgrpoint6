@@ -1,0 +1,43 @@
+{
+	"fileName": "id_1578388033322_209_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"moduleName": "",
+	"reference": "crs.cras_gr_po_int06.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "mode",
+		"newValue": "MultiSelect"
+	},
+	"selector": {
+		"id": "crs.cras_gr_po_int06::sap.suite.ui.generic.template.ObjectPage.view.Details::ZC_PO_GR_DELIVERY--idRefFctDlvHuList::responsiveTable",
+		"type": "sap.m.Table",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/crs.cras_gr_po_int06/changes/",
+	"projectId": "crs.cras_gr_po_int06",
+	"creation": "2020-01-07T09:07:14.489Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.73.2",
+		"sourceChangeFileName": "",
+		"compositeCommand": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "1.0.0",
+		"from": "1.0.0",
+		"to": "1.0.0"
+	},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

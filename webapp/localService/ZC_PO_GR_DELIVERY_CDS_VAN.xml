@@ -1,0 +1,74 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/zc_po_gr_delivery_cds/$metadata"><edmx:Include Namespace="ZC_PO_GR_DELIVERY_CDS" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zc_po_gr_delivery_cds_van.v1">
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/DraftUUID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/DraftEntityType"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/DraftAccessType"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/ProcessingStartDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/DraftIsKeptByUser"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/EnqueueStartDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/DraftIsCreatedByMe"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/DraftIsLastChangedByMe"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/DraftIsProcessedByMe"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/CreatedByUserDescription"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/LastChangedByUserDescription"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.I_DraftAdministrativeDataType/InProcessByUserDescription"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType/DraftUUID"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType/HasActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType/HasDraftEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType/IsActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType/DraftEntityCreationDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType/DraftEntityLastChangeDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType/Activation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType/Edit_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType/Preparation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType/Validation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType">
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="customerId"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType/DraftUUID"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType/HasActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType/HasDraftEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType/IsActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType/DraftEntityCreationDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType/DraftEntityLastChangeDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType/ParentDraftUUID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType/Create_hu_gr_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType/Preparation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType/Validation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType">
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="materialId"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataFieldForAction"><PropertyValue Property="Label" String="Test Mattijs"/><PropertyValue Property="Action" String="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_CDS_Entities/ZC_PO_GR_DELIVERY_PO_ITEMCreate_hu_gr"/><PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="poId"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem" Qualifier="objectPage">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="materialId"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>materialId</PropertyPath>
+						<PropertyPath>poId</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

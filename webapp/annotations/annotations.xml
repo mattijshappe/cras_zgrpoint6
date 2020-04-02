@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZC_PO_GR_DELIVERY_CDS/$metadata">
+		<edmx:Include Alias="ZC_PO_GR_DELIVERY_CDS" Namespace="ZC_PO_GR_DELIVERY_CDS"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="crs.cras_gr_po_int06.ZC_PO_GR_DELIVERY_CDS">
+			<!--===============================================================================
+                Entity Type from chosen collection 
+                ================================================================================-->
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERYType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+							<PropertyValue Property="ID" String="idRefFctDlvDet"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;DELIVERY}"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="to_po_items/@UI.LineItem"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;PO_ITEMS}"/>
+							<PropertyValue Property="ID" String="idRefFctDlvPoItems"/>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;TOTALS}"/>
+							<PropertyValue Property="ID" String="idColFctDlvTotals"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#huTotals"/>
+										<PropertyValue Property="ID" String="idRefFctDlvTotals"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="to_handling_units/@UI.LineItem"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;HANDLING_UNITS}"/>
+							<PropertyValue Property="ID" String="idRefFctDlvHuList"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_HUType">
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataFieldForAction">
+							<PropertyValue Property="Label" String="{@i18n&gt;COPY}"/>
+							<PropertyValue Property="Action" String="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_CDS_Entities/ZC_PO_GR_DELIVERY_HUCopy"/>
+							<PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="externalId"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="totalQuantitySt"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="totalQuantityM3"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="totalQuantityM"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="totalQuantityMBF"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="secondExternalId"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="to_poItemDetails/poItemIdCombined"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="packagingMaterial"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="secondExternalId"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="to_poItemDetails/poItemIdCombined"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="to_poItemDetails/openQuantity"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="to_poItemDetails/materialId"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="huCountDeliveryTotals">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>identicalHuCount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="TargetEntities">
+							<Collection>
+								<NavigationPropertyPath>to_delivery</NavigationPropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="huCountTotalM">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>identicalHuCount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="TargetProperties">
+							<Collection>
+								<PropertyPath>totalQuantityM</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="huCountTotalM3">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>identicalHuCount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="TargetProperties">
+							<Collection>
+								<PropertyPath>totalQuantityM3</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant">
+					<Record Type="UI.PresentationVariantType">
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="sortField"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="RequestAtLeast">
+							<Collection>
+								<PropertyPath>sortField</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.LineItem</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="Handling Unit"/>
+							<PropertyValue Property="ID" String="idCofFctHU"/>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#huTotals"/>
+										<PropertyValue Property="ID" String="idRefFctHuTotals"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="{@i18n&gt;TOTALS}"/>
+							<PropertyValue Property="ID" String="idColFctHuTotals"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="to_items/@UI.LineItem"/>
+							<PropertyValue Property="Label" String="Items"/>
+							<PropertyValue Property="ID" String="ifRefFctHuItems"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIV_HU_ITEMType">
+				<Annotation Term="Common.SideEffects" Qualifier="altWidth">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charAltWidth</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="altLength">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charAltLength</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="altThickness">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charAltThickness</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="qty">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="deliveryQuantity"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="to_poItemDetails/openQuantity"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="quantityM3"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="quantityM"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="quantityMBF"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="handlingUnitItemId"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charAltThickness"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharAltThickness"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charPurchThickness"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharPurchThickness"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charSalesThickness"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharSalesThickness"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charAltWidth"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharAltWidth"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charPurchWidth"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharPurchWidth"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charSalesWidth"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharSalesWidth"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charPurchCircumference"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharPurchCircumference"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charSalesCircumference"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharSalesCircumference"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charAltLength"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharAltLength"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charPurchLength"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharPurchLength"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="charSalesLength"/>
+							<Annotation Term="UI.Hidden" Path="to_handlingUnit/hideCharSalesLength"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="deliveryQuantity"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="quantityM3"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="quantityM"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="quantityMBF"/>
+						</Record>
+						<Record Type="UI.DataFieldForAction">
+							<PropertyValue Property="Label" String="Split batch"/>
+							<PropertyValue Property="Action" String="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_CDS_Entities/ZC_PO_GR_DELIV_HU_ITEMSplit"/>
+							<PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+							<PropertyValue Property="Inline" Bool="true"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="dlvQtyRefreshHuQty">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="TargetEntities">
+							<Collection>
+								<NavigationPropertyPath>to_handlingUnit</NavigationPropertyPath>
+								<NavigationPropertyPath>to_delivery</NavigationPropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>deliveryQuantity</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="lengthRefreshHuQty">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="TargetEntities">
+							<Collection>
+								<NavigationPropertyPath>to_handlingUnit</NavigationPropertyPath>
+								<NavigationPropertyPath>to_delivery</NavigationPropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charPurchLength</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="widthRefreshHuQty">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="TargetEntities">
+							<Collection>
+								<NavigationPropertyPath>to_handlingUnit</NavigationPropertyPath>
+								<NavigationPropertyPath>to_delivery</NavigationPropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charPurchWidth</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="thicknessRefreshHuQty">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="TargetEntities">
+							<Collection>
+								<NavigationPropertyPath>to_handlingUnit</NavigationPropertyPath>
+								<NavigationPropertyPath>to_delivery</NavigationPropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charPurchThickness</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="CircRefreshHuQty">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="TargetEntities">
+							<Collection>
+								<NavigationPropertyPath>to_handlingUnit</NavigationPropertyPath>
+								<NavigationPropertyPath>to_delivery</NavigationPropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charPurchCircumference</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="refreshUnitQty">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="TargetProperties">
+							<Collection>
+								<PropertyPath>quantityM</PropertyPath>
+								<PropertyPath>quantityM3</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>deliveryQuantity</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="refreshUnitLength">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="TargetProperties">
+							<Collection>
+								<PropertyPath>quantityM</PropertyPath>
+								<PropertyPath>quantityM3</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charPurchLength</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="refreshUnitWidth">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="TargetProperties">
+							<Collection>
+								<PropertyPath>quantityM</PropertyPath>
+								<PropertyPath>quantityM3</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charPurchWidth</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="refreshUnitThick">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="TargetProperties">
+							<Collection>
+								<PropertyPath>quantityM</PropertyPath>
+								<PropertyPath>quantityM3</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charPurchThickness</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="refreshUnitCir">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="TargetProperties">
+							<Collection>
+								<PropertyPath>quantityM</PropertyPath>
+								<PropertyPath>quantityM3</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charPurchCircumference</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="idFctHuItemGeneralInfo"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;GENERAL_INFORMATION}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+										<PropertyValue Property="ID" String="idRefFctHuItemGenInfo"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#qty"/>
+										<PropertyValue Property="ID" String="IdRefFctHuItemQty"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="{@i18n&gt;QUANTITIES}"/>
+							<PropertyValue Property="ID" String="IdColFctHuItemQty"/>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="idColFctHuItemChar"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;CHARACTERISTICS}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#charGen"/>
+										<PropertyValue Property="ID" String="idRefFctHuItmCharGen"/>
+										<PropertyValue Property="Label" String="{@i18n&gt;GENERAL}"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;DIMENSIONS}"/>
+							<PropertyValue Property="ID" String="idColfFctHuItemCharDim"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#charDimAlt"/>
+										<PropertyValue Property="Label" String="{@i18n&gt;ALTERNATIVE}"/>
+										<PropertyValue Property="ID" String="idRefFctHuItemCharDimAlt"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#charDim"/>
+										<PropertyValue Property="Label" String="{@i18n&gt;Sales}"/>
+										<PropertyValue Property="ID" String="idRefFctHuItemCharDimSal"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#charDimPur"/>
+										<PropertyValue Property="Label" String="{@i18n&gt;PURCHASING}"/>
+										<PropertyValue Property="ID" String="idRefFctHuItemCharDimPur"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant">
+					<Record Type="UI.PresentationVariantType">
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="huSortField"/>
+								</Record>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="handlingUnitItemId"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="RequestAtLeast">
+							<Collection>
+								<PropertyPath>huSortField</PropertyPath>
+								<PropertyPath>handlingUnitItemId</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.LineItem</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_PO_ITEMType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;CHARACTERISTICS}"/>
+							<PropertyValue Property="ID" String="idColFctPoItemCharact"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#charGen"/>
+										<PropertyValue Property="ID" String="idRefFctPoItmCharGen"/>
+										<PropertyValue Property="Label" String="{@i18n&gt;GENERAL}"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;DIMENSIONS}"/>
+							<PropertyValue Property="ID" String="idColFctPoItemDim"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#charDim"/>
+										<PropertyValue Property="ID" String="idRefFctPoItmCharDim"/>
+										<PropertyValue Property="Label" String="{@i18n&gt;Sales}"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#charDimPur"/>
+										<PropertyValue Property="Label" String="{@i18n&gt;PURCHASING}"/>
+										<PropertyValue Property="ID" String="idRefFctPoItemCharDimPur"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="{@i18n&gt;PURCHASE_ORDER_ITEM}"/>
+						<PropertyValue Property="TypeNamePlural" String="{@i18n&gt;PO_ITEMS}"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="poItemIdCombined"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="materialID"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIV_HU_ITEMType/charAltLength">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Material alternative units value help"/>
+						<PropertyValue Property="CollectionPath" String="ZI_MM_MATERIAL_ALT_UNIT_QTY"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="materialId"/>
+									<PropertyValue Property="ValueListProperty" String="materialId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charAltLength"/>
+									<PropertyValue Property="ValueListProperty" String="alternativeQuantity"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charDimensionUnit"/>
+									<PropertyValue Property="ValueListProperty" String="targetUnit"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charSalesLength"/>
+									<PropertyValue Property="ValueListProperty" String="targetSalesQuantity"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charPurchLength"/>
+									<PropertyValue Property="ValueListProperty" String="targetPurchasingQuantity"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIV_HU_ITEMType/charAltWidth">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Material alternative units value help"/>
+						<PropertyValue Property="CollectionPath" String="ZI_MM_MATERIAL_ALT_UNIT_QTY"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="materialId"/>
+									<PropertyValue Property="ValueListProperty" String="materialId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charAltWidth"/>
+									<PropertyValue Property="ValueListProperty" String="alternativeQuantity"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charDimensionUnit"/>
+									<PropertyValue Property="ValueListProperty" String="targetUnit"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charSalesWidth"/>
+									<PropertyValue Property="ValueListProperty" String="targetSalesQuantity"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charPurchWidth"/>
+									<PropertyValue Property="ValueListProperty" String="targetPurchasingQuantity"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIV_HU_ITEMType/charAltThickness">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Material alternative units value help"/>
+						<PropertyValue Property="CollectionPath" String="ZI_MM_MATERIAL_ALT_UNIT_QTY"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="materialId"/>
+									<PropertyValue Property="ValueListProperty" String="materialId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charAltThickness"/>
+									<PropertyValue Property="ValueListProperty" String="alternativeQuantity"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charDimensionUnit"/>
+									<PropertyValue Property="ValueListProperty" String="targetUnit"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charSalesThickness"/>
+									<PropertyValue Property="ValueListProperty" String="targetSalesQuantity"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="charPurchThickness"/>
+									<PropertyValue Property="ValueListProperty" String="targetPurchasingQuantity"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

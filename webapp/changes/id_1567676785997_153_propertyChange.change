@@ -1,0 +1,42 @@
+{
+	"fileName": "id_1567676785997_153_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"moduleName": "",
+	"reference": "crs.cras_gr_po_int06.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "growingThreshold",
+		"newValue": 30
+	},
+	"selector": {
+		"id": "crs.cras_gr_po_int06::sap.suite.ui.generic.template.ObjectPage.view.Details::ZC_PO_GR_DELIVERY--idRefFctDlvHuItems::responsiveTable",
+		"type": "sap.m.Table",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/crs.cras_gr_po_int06/changes/",
+	"projectId": "crs.cras_gr_po_int06",
+	"creation": "2019-09-05T09:46:29.636Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.69.1",
+		"sourceChangeFileName": "",
+		"compositeCommand": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "1.0.0",
+		"from": "1.0.0",
+		"to": "1.0.0"
+	},
+	"jsOnly": false,
+	"variantReference": ""
+}

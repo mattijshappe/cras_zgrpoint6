@@ -1,0 +1,42 @@
+{
+	"fileName": "id_1569865823092_195_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"moduleName": "",
+	"reference": "crs.cras_gr_po_int06.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "enabled",
+		"newValue": false
+	},
+	"selector": {
+		"id": "crs.cras_gr_po_int06::sap.suite.ui.generic.template.ObjectPage.view.Details::ZC_PO_GR_DELIVERY--ActionHuCreatebutton",
+		"type": "sap.m.Button",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/crs.cras_gr_po_int06/changes/",
+	"projectId": "crs.cras_gr_po_int06",
+	"creation": "2019-09-30T17:50:37.193Z",
+	"originalLanguage": "NL",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.70.0",
+		"sourceChangeFileName": "",
+		"compositeCommand": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "1.0.0",
+		"from": "1.0.0",
+		"to": "1.0.0"
+	},
+	"jsOnly": false,
+	"variantReference": ""
+}
