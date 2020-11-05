@@ -5,7 +5,7 @@
       "path": "/sap/opu/odata",
       "target": {
         "type": "destination",
-        "name": "CRAS_S4D_100_HTTPS",
+        "name": "crasdev_webide_100",
         "entryPath": "/sap/opu/odata"
       },
       "description": "Cras development mandant 100"
@@ -51,7 +51,7 @@
       "path": "/sap/bc/lrep",
       "target": {
         "type": "destination",
-        "name": "CRAS_S4D_100_HTTPS",
+        "name": "crasdev_webide_100",
         "entryPath": "/sap/bc/lrep"
       },
       "description": "CRAS_S4D_100_HTTPS"
