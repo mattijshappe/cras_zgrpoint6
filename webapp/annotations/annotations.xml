@@ -87,9 +87,6 @@
 							<PropertyValue Property="Value" Path="secondExternalId"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Value" Path="to_poItemDetails/poItemIdCombined"/>
-						</Record>
-						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="to_poItemDetails/openQuantity"/>
 						</Record>
 						<Record Type="UI.DataField">
@@ -184,6 +181,18 @@
 							</PropertyValue>
 							<PropertyValue Property="Label" String="{@i18n&gt;TOTALS}"/>
 							<PropertyValue Property="ID" String="idColFctHuTotals"/>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;CHARACTERISTICS}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#huChar"/>
+										<PropertyValue Property="ID" String="idRefFctHuChar"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+							<PropertyValue Property="ID" String="idColfFctHuChar"/>
 						</Record>
 						<Record Type="UI.ReferenceFacet">
 							<PropertyValue Property="Target" AnnotationPath="to_items/@UI.LineItem"/>
@@ -490,19 +499,6 @@
 							<PropertyValue Property="ID" String="IdColFctHuItemQty"/>
 						</Record>
 						<Record Type="UI.CollectionFacet">
-							<PropertyValue Property="ID" String="idColFctHuItemChar"/>
-							<PropertyValue Property="Label" String="{@i18n&gt;CHARACTERISTICS}"/>
-							<PropertyValue Property="Facets">
-								<Collection>
-									<Record Type="UI.ReferenceFacet">
-										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#charGen"/>
-										<PropertyValue Property="ID" String="idRefFctHuItmCharGen"/>
-										<PropertyValue Property="Label" String="{@i18n&gt;GENERAL}"/>
-									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record Type="UI.CollectionFacet">
 							<PropertyValue Property="Label" String="{@i18n&gt;DIMENSIONS}"/>
 							<PropertyValue Property="ID" String="idColfFctHuItemCharDim"/>
 							<PropertyValue Property="Facets">
@@ -573,7 +569,12 @@
 									<Record Type="UI.ReferenceFacet">
 										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#charGen"/>
 										<PropertyValue Property="ID" String="idRefFctPoItmCharGen"/>
-										<PropertyValue Property="Label" String="{@i18n&gt;GENERAL}"/>
+										<PropertyValue Property="Label" String="{@i18n&gt;BATCH}"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#charHu"/>
+										<PropertyValue Property="ID" String="idRefFctPoItmCharHu"/>
+										<PropertyValue Property="Label" String="{@i18n&gt;HU}"/>
 									</Record>
 								</Collection>
 							</PropertyValue>
