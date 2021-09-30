@@ -23,6 +23,13 @@ sap.ui.controller("crs.cras_gr_po_int06.ext.controller.ObjectPageExt", {
 			oHuTable.setMode("MultiSelect");
 			oHuTable.setGrowing(false);
 		}
+		
+		var oHuItemsTable = this.getHuItemsTable();
+		if (oHuItemsTable) {
+			oHuItemsTable.setGrowingThreshold(100);
+			oHuItemsTable.setGrowingScrollToLoad(true);
+		}
+		
 	},
 	onClickActionHuCreate: function (oEvent) {
 		// Call action to create new handling unit
@@ -93,5 +100,12 @@ sap.ui.controller("crs.cras_gr_po_int06.ext.controller.ObjectPageExt", {
 	_getHuCreateButton: function () {
 		return this.getView().byId(
 			"crs.cras_gr_po_int06::sap.suite.ui.generic.template.ObjectPage.view.Details::ZC_PO_GR_DELIVERY--ActionHuCreatebutton");
+	},
+	getHuItemsTable: function(){
+		var oTable = this.getView().byId("crs.cras_gr_po_int06::sap.suite.ui.generic.template.ObjectPage.view.Details::ZC_PO_GR_DELIVERY_HU--ifRefFctHuItems::responsiveTable");
+		if(!oTable){
+			oTable=this.getView().getContent()[0].getSections()[3].getSubSections()[0].getBlocks()[0].getContent()[0].getTable();
+		}
+		return oTable;
 	}
 });
