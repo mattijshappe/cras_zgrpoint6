@@ -315,7 +315,7 @@
 							<PropertyValue Property="Value" Path="quantityMBF"/>
 						</Record>
 						<Record Type="UI.DataFieldForAction">
-							<PropertyValue Property="Label" String="Split batch"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;SPLIT_BATCH}"/>
 							<PropertyValue Property="Action" String="ZC_PO_GR_DELIVERY_CDS.ZC_PO_GR_DELIVERY_CDS_Entities/ZC_PO_GR_DELIV_HU_ITEMSplit"/>
 							<PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
 							<PropertyValue Property="Inline" Bool="true"/>
