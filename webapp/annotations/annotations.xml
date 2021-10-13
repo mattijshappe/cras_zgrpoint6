@@ -230,6 +230,42 @@
 						</PropertyValue>
 					</Record>
 				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="salWidth">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charSalesWidth</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="SalLength">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charSalesLength</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="salThickness">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charSalesThickness</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.SideEffects" Qualifier="salCircumference">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>charSalesCircumference</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
 				<Annotation Term="UI.FieldGroup" Qualifier="qty">
 					<Record Type="UI.FieldGroupType">
 						<PropertyValue Property="Data">
